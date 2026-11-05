@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Back Half Athlete | Running and strength coaching for runners over 40</title>
+<link rel="canonical" href="https://backhalfathlete.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 22'%3E%3Ccircle cx='22' cy='9' r='5.5' fill='%23FFB31F'/%3E%3Cpath d='M0 22 L9 8 L14 14 L19 6 L34 22 Z' fill='%23FF5A2C'/%3E%3C/svg%3E">
+<meta property="og:url" content="https://backhalfathlete.com/">
+<meta property="og:site_name" content="Back Half Athlete">
+<meta name="description" content="A running and strength coach that lives in your messages. Built for runners over 40 who want to get stronger without getting hurt. Reads your watch data and tells you what to do tomorrow.">
+<meta property="og:title" content="Your watch knows your pace. It doesn't know you.">
+<meta property="og:description" content="A coach in your messages for runners over 40. Running and lifting threaded into one plan that bends around your life.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Does it replace my running watch?","acceptedAnswer":{"@type":"Answer","text":"It uses your watch. Garmin and COROS work today, and Apple Watch and other watches are being checked now. Your watch keeps tracking, and the coach turns that data into a plan fit to you."}},
+{"@type":"Question","name":"Who is it for?","acceptedAnswer":{"@type":"Answer","text":"Runners 40 and up who already train and want to add strength without getting hurt. The first outside testers are men. The women's version of the training gets its own review by a woman clinician, and women join after that review. Beginners are welcome later with a simpler start."}},
+{"@type":"Question","name":"Do I need to download an app?","acceptedAnswer":{"@type":"Answer","text":"There's no fitness app to open. The coach messages you in Telegram, a free messaging app you may already have."}}
+]}
+</script>
+<style>
+/* Layout: dawn-in-the-foothills hero, cool chalk story sections with dark "trail map" diagram panels, night interactive band, dawn CTA. Single committed look. */
+:root{
+  --night:#0E1A31;
+  --ridge:#1C3357;
+  --dawn:#FF5A2C;
+  --gold:#FFB31F;
+  --lake:#19B8A6;
+  --chalk:#EBF0EC;
+  --ink:#0D1628;
+  --mist:#566477;
+  --paper:#FFFFFF;
+  --line:#CBD5D0;
+  --night-2:#15264A;
+  --night-text:#E9EEF5;
+  --night-dim:#9AA8C0;
+  --display:"Big Shoulders Display","Arial Narrow","Roboto Condensed",Impact,sans-serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:18px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--chalk);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--night)}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:.005em;margin:0;text-wrap:balance}
+p{margin:0}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(14,26,49,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{display:flex;align-items:center;gap:10px;color:var(--night-text);text-decoration:none;font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap}
+.mark svg{width:34px;height:22px;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 22px;font-family:var(--body);font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,background .2s}
+.btn-dawn{background:var(--dawn);color:var(--paper);box-shadow:0 8px 24px -8px rgba(255,90,44,.7)}
+.btn-dawn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(255,90,44,.85)}
+.nav .btn{padding:9px 18px;font-size:15px;white-space:nowrap;flex:none}
+.mark span{overflow:hidden;text-overflow:ellipsis}
+.mark{min-width:0}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;color:var(--night-text);
+  background:linear-gradient(180deg,#0E1A31 0%,#22264F 34%,#5A2F5E 56%,#C8494A 74%,#FF8A3D 88%,#FFB31F 100%);
+  padding-block:56px 300px}
+.hero-grid{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);gap:48px;align-items:center}
+.hero .eyebrow{color:var(--gold);display:inline-flex;align-items:center;gap:10px}
+.hero .eyebrow::before{content:"";width:28px;height:2px;background:var(--gold)}
+.hero h1{font-size:clamp(56px,9vw,128px);margin-top:18px;color:var(--paper)}
+.hero h1 .hl{color:var(--gold);display:block}
+.hero-sub{margin-top:24px;font-size:clamp(17px,1.6vw,20px);max-width:34em;color:#D9E0EC}
+.signup{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px;max-width:560px}
+.signup input,.signup select{flex:1 1 220px;min-width:0;border-radius:999px;border:1.5px solid rgba(255,255,255,.25);background:rgba(8,16,32,.45);color:var(--paper);padding:13px 20px;font:inherit;font-size:16px}
+.signup select{flex:1 1 200px;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+.signup select option{color:var(--ink);background:var(--paper)}
+.signup input::placeholder{color:#A9B4C7}
+.signup .btn{flex:1 1 100%}
+.form-note{margin-top:10px;font-size:14px;color:#B9C3D5;min-height:1.4em}
+.form-note.ok{color:var(--gold);font-weight:600}
+.form-note.err{color:#FFC4B2}
+.hero-land{position:absolute;left:0;right:0;bottom:0;height:420px;z-index:1;pointer-events:none}
+.hero-land svg{width:100%;height:100%;display:block}
+
+/* phone */
+.phone{position:relative;width:min(320px,100%);margin-inline:auto;border-radius:44px;padding:12px;background:linear-gradient(160deg,#2A3550,#0A1222);box-shadow:0 40px 80px -30px rgba(0,0,0,.7),inset 0 0 0 1.5px rgba(255,255,255,.12)}
+.screen{border-radius:34px;background:#F4F6F8;color:var(--ink);overflow:hidden;min-height:470px;display:flex;flex-direction:column}
+.screen-top{display:flex;align-items:center;gap:10px;padding:18px 18px 12px;border-bottom:1px solid #E1E6EA;background:var(--paper)}
+.avatar{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 50% 120%,var(--gold) 0 40%,var(--dawn) 41% 62%,var(--night) 63%);flex:none}
+.screen-top b{font-size:14px;display:block;line-height:1.2}
+.screen-top span{font-size:12px;color:var(--mist)}
+.thread{flex:1;padding:16px 14px;display:flex;flex-direction:column;gap:10px;justify-content:flex-start}
+.msg{max-width:86%;padding:10px 13px;border-radius:18px;font-size:14px;line-height:1.4;transition:opacity .35s ease,transform .35s ease}
+.msg.in{background:var(--paper);color:var(--ink);border:1px solid #E1E6EA;border-bottom-left-radius:6px;align-self:flex-start}
+.msg.out{background:var(--lake);color:#fff;border-bottom-right-radius:6px;align-self:flex-end}
+.msg.hide{opacity:0;transform:translateY(8px)}
+.msg time{display:block;font-family:var(--mono);font-size:10px;color:var(--mist);margin-bottom:3px;letter-spacing:.04em}
+.typing{align-self:flex-start;background:var(--paper);border:1px solid #E1E6EA;border-radius:18px;padding:12px 14px;display:flex;gap:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#9AA6B5;animation:dot 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+
+/* MARQUEE */
+.marquee{background:var(--gold);color:var(--ink);overflow:hidden;border-block:3px solid var(--ink);position:relative;z-index:4;transform:rotate(-1.2deg);margin-top:-26px;margin-inline:-20px}
+.marquee-track{display:flex;gap:48px;width:max-content;padding-block:14px;animation:marq 42s linear infinite}
+.marquee span{font-family:var(--display);font-weight:800;font-size:clamp(22px,3vw,34px);text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:48px}
+.marquee span::after{content:"";width:12px;height:12px;background:var(--dawn);border-radius:50%}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section{padding-block:110px}
+.sec-head{max-width:820px}
+.sec-head h2{font-size:clamp(44px,6.4vw,88px)}
+.sec-head p{margin-top:20px;font-size:19px;color:var(--mist);max-width:36em}
+.sec-head .eyebrow{color:var(--dawn);display:block;margin-bottom:16px}
+
+.pains{display:flex;flex-direction:column;gap:96px;margin-top:80px}
+.pain{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:center}
+.pain:nth-child(even) .pain-copy{order:2}
+.pain-copy{min-width:0}
+.pain-copy .eyebrow{color:var(--lake)}
+.pain-copy h3{font-size:clamp(38px,4.6vw,62px);margin-top:12px}
+.pain-copy p{margin-top:18px;font-size:18px;color:#334156;max-width:32em}
+.pain-copy .fix{margin-top:18px;display:flex;gap:12px;align-items:flex-start;font-weight:600;color:var(--ink)}
+.pain-copy .fix::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--dawn) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+
+.viz{position:relative;min-width:0;background:var(--night);color:var(--night-text);border-radius:28px;padding:28px;overflow:hidden;min-height:360px;
+  background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.07) 1px,transparent 0);background-size:22px 22px;
+  box-shadow:0 30px 60px -36px rgba(14,26,49,.8)}
+.viz-cap{position:absolute;left:28px;bottom:22px;right:28px;display:flex;justify-content:space-between;gap:12px;color:var(--night-dim)}
+.viz-cap b{color:var(--gold);font-weight:700}
+
+/* viz 1: watch */
+.v-watch{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;padding-bottom:40px}
+.watch{width:150px;height:150px;border-radius:50%;position:relative;display:grid;place-items:center;background:#0A1325;box-shadow:inset 0 0 0 6px #22314F}
+.watch::before{content:"";position:absolute;inset:-6px;border-radius:50%;background:conic-gradient(var(--lake) 0 62%,transparent 62%);-webkit-mask:radial-gradient(circle,transparent 68px,#000 69px);mask:radial-gradient(circle,transparent 68px,#000 69px);animation:spin 6s linear infinite}
+.watch-face{text-align:center;display:flex;flex-direction:column;gap:2px}
+.watch-face b{font-family:var(--display);font-size:56px;line-height:1;color:var(--paper)}
+.watch-face .mono{font-size:9px;color:var(--night-dim)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fan{display:flex;flex-direction:column;gap:14px;min-width:0}
+.who{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px 14px;border-radius:14px;background:var(--night-2);border:1px solid rgba(255,255,255,.08)}
+.who::before{content:"";position:absolute;right:100%;top:50%;width:34px;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 6px,transparent 6px 12px);background-size:12px 2px;animation:flow 1s linear infinite}
+@keyframes flow{to{background-position:12px 0}}
+.who-tag{font-size:14px;color:var(--night-text)}
+.who-tag small{display:block;font-family:var(--mono);font-size:10px;color:var(--night-dim);letter-spacing:.06em;text-transform:uppercase}
+.who-msg{font-family:var(--mono);font-size:11px;padding:6px 9px;border-radius:8px;background:rgba(255,90,44,.16);color:#FFB49D;white-space:nowrap;animation:same 4.5s ease-in-out infinite}
+.who:nth-child(2) .who-msg{animation-delay:-3s}.who:nth-child(3) .who-msg{animation-delay:-1.5s}
+@keyframes same{0%,100%{box-shadow:0 0 0 0 rgba(255,90,44,0)}12%{box-shadow:0 0 0 6px rgba(255,90,44,.25)}30%{box-shadow:0 0 0 0 rgba(255,90,44,0)}}
+
+/* viz 2: apps */
+.v-apps{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;padding-bottom:40px}
+.mini{width:170px;height:300px;border-radius:30px;background:#0A1325;box-shadow:inset 0 0 0 5px #22314F;position:relative;padding:28px 16px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;transition:opacity .5s,transform .5s}
+.tile{aspect-ratio:1;border-radius:12px;position:relative;max-width:100%}
+.tile:nth-child(1){background:#3D5A99}.tile:nth-child(2){background:#2E8B74}.tile:nth-child(3){background:#B9493F}
+.tile:nth-child(4){background:#7A5BA8}.tile:nth-child(5){background:#C98A1E}.tile:nth-child(6){background:#2B6E9E}
+.tile:nth-child(7){background:#8C3F6E}.tile:nth-child(8){background:#3E7D44}.tile:nth-child(9){background:#5C6A80}
+.badge{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:#FF3B30;color:#fff;font:700 11px/20px var(--body);text-align:center;box-shadow:0 0 0 2px #0A1325;transition:transform .2s}
+.badge.bump{transform:scale(1.3)}
+.one-msg{position:absolute;left:12px;right:12px;top:50%;transform:translateY(-50%) scale(.9);opacity:0;background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 12px;font-size:12.5px;line-height:1.35;transition:opacity .5s,transform .5s}
+.one-msg time{display:block;font-family:var(--mono);font-size:9px;color:var(--mist);margin-bottom:3px}
+.v-apps.calm .tiles{opacity:0;transform:scale(.6)}
+.v-apps.calm .one-msg{opacity:1;transform:translateY(-50%) scale(1)}
+.apps-side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.counter{font-family:var(--display);font-size:72px;line-height:.9;color:var(--paper)}
+.counter small{display:block;font-family:var(--mono);font-size:11px;color:var(--night-dim);letter-spacing:.08em;margin-top:8px}
+.state-pill{align-self:flex-start;font-family:var(--mono);font-size:11px;padding:6px 10px;border-radius:999px;background:rgba(255,59,48,.18);color:#FF9A93;letter-spacing:.06em;transition:background .4s,color .4s}
+.v-apps.calm .state-pill{background:rgba(25,184,166,.2);color:#7FE6D9}
+
+/* viz 3: week */
+.v-week{padding-bottom:60px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:10px}
+.days span{font-family:var(--mono);font-size:11px;color:var(--night-dim);text-align:center}
+.lanes{position:relative;display:flex;flex-direction:column;gap:12px}
+.lane{position:relative;height:66px;border-radius:12px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 calc(100%/7 - 3px),transparent calc(100%/7 - 3px) calc(100%/7))}
+.lane-label{position:absolute;left:0;top:-2px;transform:translateY(-100%);font-family:var(--mono);font-size:10px;color:var(--night-dim);letter-spacing:.08em}
+.lanes .lane:first-child{margin-top:16px}
+.lanes .lane:nth-child(2){margin-top:18px}
+.blk{position:absolute;top:6px;bottom:6px;left:calc(100%/7*var(--d) + 3px);width:calc(100%/7*var(--w,1) - 6px);border-radius:9px;padding:6px 7px;font-size:11.5px;font-weight:700;line-height:1.15;transition:left .9s cubic-bezier(.7,0,.2,1),background .5s,box-shadow .5s;overflow:hidden}
+.blk small{display:block;font-family:var(--mono);font-weight:500;font-size:9.5px;opacity:.8;margin-top:2px}
+.blk.run{background:rgba(25,184,166,.22);color:#9EF0E5;border:1px solid rgba(25,184,166,.45)}
+.blk.run.key{background:var(--lake);color:#05261F}
+.blk.lift{background:rgba(255,179,31,.18);color:#FFD27A;border:1px solid rgba(255,179,31,.45)}
+.blk.lift.heavy{background:var(--gold);color:#2A1C00}
+.v-week:not(.fixed) .blk.clash{box-shadow:0 0 0 2px var(--dawn),0 0 22px rgba(255,90,44,.6);animation:throb 1.2s ease-in-out infinite}
+@keyframes throb{50%{box-shadow:0 0 0 2px var(--dawn),0 0 34px rgba(255,90,44,.9)}}
+.week-verdict{position:absolute;left:28px;right:28px;bottom:22px;display:flex;align-items:center;gap:10px;font-size:14px}
+.week-verdict .dotv{width:10px;height:10px;border-radius:50%;background:var(--dawn);flex:none;transition:background .4s}
+.v-week.fixed .week-verdict .dotv{background:var(--lake)}
+.week-verdict .bad,.week-verdict .good{transition:opacity .4s}
+.v-week.fixed .bad,.v-week:not(.fixed) .good{display:none}
+
+/* viz 4: chart */
+.v-chart{min-height:0}
+.v-chart svg{width:100%;height:auto;display:block}
+.draw{stroke-dasharray:1;stroke-dashoffset:0;animation:drawline 8s ease-in-out infinite;animation-delay:-4.5s}
+.draw.late{animation-delay:-4.2s}
+@keyframes drawline{0%{stroke-dashoffset:1}45%,100%{stroke-dashoffset:0}}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px;font-size:13px;color:var(--night-dim)}
+.legend i{display:inline-block;width:22px;height:3px;border-radius:2px;vertical-align:middle;margin-right:8px}
+
+/* viz 5: research lens */
+.v-lens{min-height:450px}
+.lens-field{position:absolute;inset:0 0 130px 0}
+.chip{position:absolute;left:50%;top:50%;white-space:nowrap;font-family:var(--mono);font-size:11px;letter-spacing:.03em;padding:6px 10px;border-radius:999px;background:var(--night-2);border:1px solid rgba(255,255,255,.12);color:var(--night-text);
+  transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y)));animation:converge 9s cubic-bezier(.5,0,.6,1) infinite;animation-delay:var(--dl)}
+@keyframes converge{0%{transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(.85);opacity:0}8%,52%{transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1);opacity:1}86%,100%{transform:translate(-50%,-50%) scale(.2);opacity:0}}
+.chip:nth-child(3n){animation-name:converge;border-color:rgba(25,184,166,.4)}
+.lens{position:absolute;left:50%;top:50%;width:92px;height:92px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,179,31,.95) 0 22%,rgba(255,90,44,.85) 23% 46%,rgba(255,90,44,.12) 47% 100%);box-shadow:0 0 50px rgba(255,90,44,.55)}
+.lens::before,.lens::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:1.5px solid rgba(255,179,31,.5);animation:ripple 3s ease-out infinite}
+.lens::after{animation-delay:-1.5s}
+@keyframes ripple{from{transform:scale(.7);opacity:1}to{transform:scale(1.6);opacity:0}}
+.lens-out{position:absolute;left:28px;right:28px;bottom:58px;display:flex;justify-content:center}
+.lens-out .msg{max-width:420px;font-size:15px;box-shadow:0 18px 40px -18px rgba(0,0,0,.6)}
+
+/* viz 6: map */
+.v-map{padding:28px 28px 28px 52px}
+.map{position:relative;height:320px;border-left:2px solid rgba(255,255,255,.25);border-bottom:2px solid rgba(255,255,255,.25)}
+.axis-y{position:absolute;left:-40px;top:50%;transform:translateY(-50%) rotate(-90deg);white-space:nowrap;color:var(--night-dim)}
+.axis-x{position:absolute;right:0;bottom:-28px;color:var(--night-dim)}
+.pt{position:absolute;left:var(--px);bottom:var(--py);transform:translate(-50%,50%);display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.pt i{width:14px;height:14px;border-radius:50%;background:#5C6A80;box-shadow:0 0 0 4px rgba(92,106,128,.25)}
+.pt span{font-size:12.5px;color:var(--night-dim);white-space:nowrap}
+.pt.us i{width:22px;height:22px;background:var(--dawn);box-shadow:0 0 0 0 rgba(255,90,44,.6);animation:beacon 2s infinite}
+.pt.us span{color:var(--paper);font-weight:700;font-size:14px}
+.pt.us span em{display:block;font-style:normal;font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.06em}
+@keyframes beacon{0%{box-shadow:0 0 0 0 rgba(255,90,44,.7)}100%{box-shadow:0 0 0 22px rgba(255,90,44,0)}}
+.gap-band{position:absolute;left:18%;right:45%;top:6%;bottom:58%;border:1.5px dashed rgba(255,179,31,.5);border-radius:16px}
+
+/* HOW IT WORKS */
+.how{background:var(--paper)}
+.flow{margin-top:56px;background:var(--night);border-radius:28px;padding:28px 20px;overflow-x:auto}
+.flow svg{display:block;width:100%;min-width:640px;height:auto}
+.steps{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;counter-reset:s}
+.steps li{counter-increment:s;display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:3px solid var(--ink)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-weight:700;font-size:13px;color:var(--dawn);letter-spacing:.08em}
+.steps h3{font-size:30px}
+.steps p{font-size:15.5px;color:#3A475B}
+
+/* INTERACTIVE */
+.yours{background:var(--night);color:var(--night-text);position:relative;overflow:hidden}
+.yours::before{content:"";position:absolute;inset:auto -10% -40% -10%;height:70%;background:radial-gradient(ellipse at 50% 100%,rgba(255,90,44,.35),transparent 60%);pointer-events:none}
+.yours .sec-head p{color:var(--night-dim)}
+.yours .sec-head .eyebrow{color:var(--gold)}
+.yours-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:56px;align-items:center;margin-top:56px}
+.ctrl{display:flex;flex-direction:column;gap:30px;min-width:0}
+.ctrl-group h3{font-size:26px;color:var(--paper);margin-bottom:12px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{border:1.5px solid rgba(255,255,255,.2);background:transparent;color:var(--night-text);border-radius:999px;padding:10px 18px;font:600 15px var(--body);cursor:pointer;transition:all .2s}
+.seg button:hover{border-color:var(--gold)}
+.seg button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.guard{display:flex;gap:12px;align-items:flex-start;padding:16px 18px;border-radius:16px;background:rgba(25,184,166,.12);border:1px solid rgba(25,184,166,.35);font-size:15px;color:#BFEFE8}
+.guard svg{flex:none;width:22px;height:22px}
+.yours .screen{min-height:420px}
+#liveMsg{transition:opacity .25s}
+#liveMsg .why{display:block;margin-top:8px;padding-top:8px;border-top:1px dashed #D3DAE0;color:#3A475B;font-size:13px}
+
+/* BACK HALF */
+.life{position:relative}
+.profile{margin-top:56px;background:var(--paper);border-radius:28px;padding:24px 16px 8px;overflow-x:auto;box-shadow:0 30px 60px -40px rgba(14,26,49,.5)}
+.profile svg{display:block;width:100%;min-width:620px;height:auto}
+
+/* VISION */
+.vision{background:var(--chalk)}
+.road{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.road li{background:var(--paper);border-radius:var(--r);padding:24px 22px;border-top:6px solid var(--lake);display:flex;flex-direction:column;gap:12px}
+.road li:nth-child(2){border-top-color:var(--gold)}
+.road li:nth-child(3){border-top-color:var(--dawn)}
+.road .mono{font-weight:700;color:var(--mist)}
+.road h3{font-size:34px}
+.road p{font-size:16px;color:#3A475B}
+.keeps{margin-top:40px;background:var(--night);color:var(--night-text);border-radius:28px;padding:28px}
+.keeps h3{font-size:28px;color:var(--gold)}
+.keeps ul{margin:16px 0 0;padding-left:20px;display:grid;gap:8px;font-size:16px}
+@media (max-width:960px){.road{grid-template-columns:minmax(0,1fr)}}
+
+/* FOUNDER */
+.founder{background:var(--paper)}
+.founder-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:56px;align-items:start}
+.founder blockquote{margin:0;font-size:clamp(20px,2.2vw,26px);line-height:1.45;color:var(--ink)}
+.founder blockquote p+p{margin-top:18px}
+.sig{margin-top:24px;font-family:var(--mono);font-size:13px;color:var(--mist);letter-spacing:.06em}
+.bib{background:var(--paper);border:2px solid var(--ink);border-radius:16px;padding:22px;max-width:300px;position:relative;transform:rotate(-3deg);box-shadow:8px 8px 0 var(--ink)}
+.bib::before,.bib::after{content:"";position:absolute;top:12px;width:10px;height:10px;border-radius:50%;border:2px solid var(--ink)}
+.bib::before{left:12px}.bib::after{right:12px}
+.bib .num{font-family:var(--display);font-weight:900;font-size:96px;line-height:.85;color:var(--dawn);text-align:center}
+.bib .lbl{font-family:var(--mono);font-size:11px;text-align:center;letter-spacing:.12em;margin-top:6px}
+.bib dl{margin:18px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+.bib dt{font-family:var(--mono);font-size:11px;color:var(--mist);letter-spacing:.06em;padding-top:2px}
+.bib dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums}
+
+/* FAQ */
+.faq{margin-top:48px;align-items:start;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.faq details{background:var(--paper);border-radius:var(--r);padding:20px 22px;border:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--dawn);font-size:20px;line-height:1;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:12px;color:#3A475B;font-size:16px}
+
+/* CTA */
+.cta{position:relative;overflow:hidden;color:var(--paper);background:linear-gradient(180deg,#FFB31F 0%,#FF5A2C 46%,#8E2F52 78%,#0E1A31 100%);padding-block:110px 260px;text-align:left}
+.cta h2{font-size:clamp(56px,9vw,140px);max-width:10ch}
+.cta p.lead{margin-top:20px;font-size:20px;max-width:30em;color:#FFF3E6}
+.cta .signup input,.cta .signup select{background:rgba(14,26,49,.35);border-color:rgba(255,255,255,.4)}
+.cta .btn-dawn{background:var(--night);box-shadow:0 10px 30px -10px rgba(14,26,49,.8)}
+.cta .form-note{color:#FFE7D6}
+.cta-land{position:absolute;left:0;right:0;bottom:0;height:240px;pointer-events:none}
+.cta-land svg{width:100%;height:100%;display:block}
+.cta .wrap{position:relative;z-index:2}
+
+footer{background:var(--night);color:var(--night-dim);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-block:28px}
+
+/* RESPONSIVE */
+@media (max-width:960px){
+  .hero-grid,.pain,.yours-grid,.founder-grid{grid-template-columns:minmax(0,1fr)}
+  .pain:nth-child(even) .pain-copy{order:0}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .faq{grid-template-columns:minmax(0,1fr)}
+  .hero{padding-block:40px 250px}
+  .pains{gap:72px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .section{padding-block:76px}
+  .v-watch,.v-apps{grid-template-columns:minmax(0,1fr);justify-items:center}
+  .who::before{display:none}
+  .fan{width:100%}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .viz{padding:20px}
+  .viz-cap,.week-verdict{left:20px;right:20px}
+  .blk{font-size:10px;padding:5px}
+  .blk small{display:none}
+  .v-map{padding-left:44px}
+  .pt span{font-size:11px}
+  .mark{font-size:18px;gap:8px}
+  .nav .btn{padding:8px 14px;font-size:14px}
+  .v-watch,.v-apps{padding-bottom:64px}
+  .hero-land{height:300px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Home">
+      <svg viewBox="0 0 34 22" aria-hidden="true"><circle cx="22" cy="9" r="5.5" fill="#FFB31F"/><path d="M0 22 L9 8 L14 14 L19 6 L34 22 Z" fill="#FF5A2C"/><path d="M0 22 L9 8 L12 12 L6 22 Z" fill="#C8494A"/></svg>
+      <span data-brand>Back Half Athlete</span>
+    </a>
+    <a class="btn btn-dawn" href="#join">Join the list</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">For runners 40 and up</span>
+      <h1>Your watch knows your pace. <span class="hl">It doesn't know you.</span></h1>
+      <p class="hero-sub">A coach that lives in your messages. It reads your watch and knows your goals and old injuries. Every evening it tells you what to do tomorrow. Running and lifting in one plan that bends around your life.</p>
+      <div class="signup">
+        <a class="btn btn-dawn" href="https://tally.so/r/aONrz9" target="_blank" rel="noopener">Join the list</a>
+        <p class="form-note">No spam. I'll let you know when there's room. Men first, then women after a clinician review.</p>
+      </div>
+    </div>
+    <div class="phone" aria-label="Example message thread">
+      <div class="screen">
+        <div class="screen-top"><span class="avatar" aria-hidden="true"></span><div><b>Coach</b><span>Reads your watch nightly</span></div></div>
+        <div class="thread" id="heroThread">
+          <div class="msg in"><time>8:42 PM</time>Tomorrow: 7 mi easy + 6 strides, then Lift A. Squat 3x5 at 225.</div>
+          <div class="msg out">Feeling good though. Can I do 9?</div>
+          <div class="msg in">Keep it at 7. You've added miles three weeks straight. Thursday's tempo matters more than Wednesday's extra two.</div>
+          <div class="msg out">Fine. 7 it is 😤</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-land" aria-hidden="true"><svg id="land" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice"></svg></div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Skip it. Not worth it for you</span><span>Ask why. It'll tell you</span><span>Easy means you could talk the whole way</span><span>Pushed back? Fair. Here's the trade</span><span>Tempo Thursday. Everything else serves it</span><span>Missed a week? We reroute. No restart</span>
+    <span>Skip it. Not worth it for you</span><span>Ask why. It'll tell you</span><span>Easy means you could talk the whole way</span><span>Pushed back? Fair. Here's the trade</span><span>Tempo Thursday. Everything else serves it</span><span>Missed a week? We reroute. No restart</span>
+  </div>
+</div>
+
+<section class="section" id="problem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Where serious runners get stuck</span>
+      <h2>You train hard. The plan keeps fighting you.</h2>
+      <p>Six stuck points that hit runners in their 40s, 50s and 60s. Each one has a fix.</p>
+    </div>
+
+    <div class="pains">
+      <article class="pain">
+        <div class="pain-copy">
+          <span class="eyebrow">The watch</span>
+          <h3>Your watch coaches a stranger.</h3>
+          <p>The data is real. The advice is written for an average runner who isn't 48, doesn't lift and never had a cranky hamstring. Three very different bodies get the same suggestion.</p>
+          <p class="fix">The coach reads the same data and answers for you, with your age and your history in the room.</p>
+        </div>
+        <div class="viz v-watch">
+          <div class="watch"><div class="watch-face"><span class="mono">Readiness</span><b>62</b><span class="mono">Base run 45 min</span></div></div>
+          <div class="fan">
+            <div class="who"><span class="who-tag"><small>Age 26</small>Never lifts</span><span class="who-msg">Base run 45 min</span></div>
+            <div class="who"><span class="who-tag"><small>Age 48</small>Sore hamstring</span><span class="who-msg">Base run 45 min</span></div>
+            <div class="who"><span class="who-tag"><small>Age 61</small>Back after a layoff</span><span class="who-msg">Base run 45 min</span></div>
+          </div>
+          <div class="viz-cap mono"><span>Same score. Same advice.</span><b>3 bodies</b></div>
+        </div>
+      </article>
+
+      <article class="pain">
+        <div class="pain-copy">
+          <span class="eyebrow">The apps</span>
+          <h3>One more app to babysit.</h3>
+          <p>A running app, a lifting app, a nutrition app and the watch app. Each one wants a login and a daily check-in, and none of them talk to each other.</p>
+          <p class="fix">You get one message the night before. Reply when you want to. There's nothing to open.</p>
+        </div>
+        <div class="viz v-apps" id="vApps">
+          <div class="mini">
+            <div class="tiles">
+              <div class="tile"><span class="badge">3</span></div><div class="tile"></div><div class="tile"><span class="badge">7</span></div>
+              <div class="tile"></div><div class="tile"><span class="badge">2</span></div><div class="tile"></div>
+              <div class="tile"><span class="badge">5</span></div><div class="tile"></div><div class="tile"><span class="badge">1</span></div>
+            </div>
+            <div class="one-msg"><time>8:42 PM</time>Tomorrow: 5 easy, then Lift B. That's it.</div>
+          </div>
+          <div class="apps-side">
+            <span class="state-pill" id="appsPill">Unread alerts</span>
+            <div class="counter"><span id="appsCount">18</span><small id="appsSmall">pings this week</small></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pain">
+        <div class="pain-copy">
+          <span class="eyebrow">The week</span>
+          <h3>Running and lifting fight each other.</h3>
+          <p>Most plans pick a side. Put heavy squats the day before your long run and you pay for it twice. Skip lifting and you lose the muscle that keeps you running past 60.</p>
+          <p class="fix">The coach threads both through your week so each session sets up the next.</p>
+        </div>
+        <div class="viz v-week" id="vWeek">
+          <div class="days"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+          <div class="lanes">
+            <div class="lane"><span class="lane-label">Run</span>
+              <div class="blk run" style="--d:0" data-bad="1" data-good="1">Easy<small>5 mi</small></div>
+              <div class="blk run key" style="--d:3" data-bad="3" data-good="2">Tempo<small>6 mi</small></div>
+              <div class="blk run" style="--d:4" data-bad="2" data-good="4">Easy<small>4 mi</small></div>
+              <div class="blk run key clash" style="--d:5" data-bad="5" data-good="5">Long<small>16 mi</small></div>
+            </div>
+            <div class="lane"><span class="lane-label">Lift</span>
+              <div class="blk lift" style="--d:1" data-bad="1" data-good="3">Light<small>Lift B</small></div>
+              <div class="blk lift heavy clash" style="--d:4" data-bad="4" data-good="0">Heavy<small>Squat 3x5</small></div>
+            </div>
+          </div>
+          <div class="week-verdict"><span class="dotv"></span><span class="bad">Heavy squats Friday, 16 miles Saturday. Legs are cooked.</span><span class="good">Heavy squats Monday. Long run Saturday on fresh legs.</span></div>
+        </div>
+      </article>
+
+      <article class="pain">
+        <div class="pain-copy">
+          <span class="eyebrow">The setback</span>
+          <h3>One bad week breaks the plan.</h3>
+          <p>A work trip, a sick kid, a holiday week, a bad stretch of sleep. Rigid plans treat a missed week like a failure and send you back to week one. That's how people quit.</p>
+          <p class="fix">The coach reroutes around it, like a trail that bends around a washout, and keeps you moving toward the same goal.</p>
+        </div>
+        <div class="viz v-chart">
+          <svg viewBox="0 0 480 270" role="img" aria-label="Chart: a rigid plan drops to zero after a sick week and restarts, an adaptive plan dips and recovers">
+            <g stroke="rgba(255,255,255,.08)" stroke-width="1">
+              <line x1="40" y1="60" x2="460" y2="60"/><line x1="40" y1="120" x2="460" y2="120"/><line x1="40" y1="180" x2="460" y2="180"/>
+            </g>
+            <line x1="40" y1="230" x2="460" y2="230" stroke="rgba(255,255,255,.3)" stroke-width="2"/>
+            <line x1="40" y1="30" x2="40" y2="230" stroke="rgba(255,255,255,.3)" stroke-width="2"/>
+            <rect x="244" y="30" width="26" height="200" fill="rgba(255,90,44,.12)"/>
+            <text x="257" y="24" fill="#FF9A7A" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">SICK WEEK</text>
+            <path class="draw" pathLength="1" d="M40 215 C 110 195, 180 150, 244 120 L 258 222 C 320 205, 390 175, 460 150" fill="none" stroke="#FF5A2C" stroke-width="3.5" stroke-dasharray="1" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="draw late" pathLength="1" d="M40 215 C 110 195, 180 150, 244 120 C 255 116, 262 134, 278 134 C 330 130, 400 82, 460 56" fill="none" stroke="#19B8A6" stroke-width="3.5" stroke-dasharray="1" stroke-linecap="round"/>
+            <circle cx="460" cy="56" r="6" fill="#19B8A6"/>
+            <circle cx="460" cy="150" r="6" fill="#FF5A2C"/>
+            <text x="452" y="44" fill="#9EF0E5" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">STILL ON TRACK</text>
+            <text x="452" y="172" fill="#FF9A7A" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">BACK TO WEEK 1</text>
+            <text x="250" y="252" fill="#9AA8C0" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">WEEKS</text>
+            <text x="20" y="130" fill="#9AA8C0" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle" transform="rotate(-90 20 130)">FITNESS</text>
+          </svg>
+          <div class="legend"><span><i style="background:#FF5A2C"></i>Rigid plan</span><span><i style="background:#19B8A6"></i>Adaptive coach</span></div>
+        </div>
+      </article>
+
+      <article class="pain">
+        <div class="pain-copy">
+          <span class="eyebrow">The research</span>
+          <h3>Too much research. No time to read it.</h3>
+          <p>Tendon loading, polarized training, protein after 40, strides, sleep. All of it matters a little, and the studies don't agree on how much. You have a job.</p>
+          <p class="fix">The coach stacks the research, resolves it to your situation and tells you what's worth your effort. Sometimes the answer is skip it.</p>
+        </div>
+        <div class="viz v-lens">
+          <div class="lens-field" id="lensField"><div class="lens" aria-hidden="true"></div></div>
+          <div class="lens-out"><div class="msg in"><time>Coach</time>Skip the extra hill repeats this month. For you, two easy miles and a good night's sleep buy more.</div></div>
+          <div class="viz-cap mono"><span>Dozens of studies in.</span><b>One sentence out</b></div>
+        </div>
+      </article>
+
+      <article class="pain">
+        <div class="pain-copy">
+          <span class="eyebrow">The price</span>
+          <h3>Real coaching costs hundreds a month.</h3>
+          <p>A good human coach is worth it if you can swing it. Generic plans are cheap and fit nobody. Most runners over 40 are stuck choosing between the two.</p>
+          <p class="fix">Daily coaching fit to you, priced for people with day jobs. Pricing comes with launch.</p>
+        </div>
+        <div class="viz v-map">
+          <div class="map">
+            <span class="axis-y mono">Fits you better ↑</span>
+            <span class="axis-x mono">Costs more →</span>
+            <div class="gap-band" aria-hidden="true"></div>
+            <div class="pt" style="--px:12%;--py:14%"><i></i><span>Watch advice</span></div>
+            <div class="pt" style="--px:26%;--py:26%"><i></i><span>Generic plan</span></div>
+            <div class="pt" style="--px:44%;--py:38%"><i></i><span>Online program</span></div>
+            <div class="pt" style="--px:84%;--py:82%"><i></i><span>Human coach</span></div>
+            <div class="pt us" style="--px:36%;--py:76%"><i></i><span>Back Half</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section how" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Your watch talks. The coach listens. You get a message.</h2>
+    </div>
+    <div class="flow">
+      <svg viewBox="0 0 900 200" role="img" aria-label="Diagram: watch data flows to the coach, which sends a message to your phone">
+        <defs>
+          <linearGradient id="fl" x1="0" x2="1"><stop offset="0" stop-color="#19B8A6"/><stop offset="1" stop-color="#FFB31F"/></linearGradient>
+        </defs>
+        <path id="flowPath" d="M150 100 C 260 30, 340 30, 450 100 S 640 170, 750 100" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="3" stroke-dasharray="6 8"/>
+        <g id="packets"></g>
+        <g transform="translate(150 100)">
+          <circle r="52" fill="#15264A" stroke="#19B8A6" stroke-width="3"/>
+          <circle r="34" fill="none" stroke="rgba(25,184,166,.4)" stroke-width="6" stroke-dasharray="140 214" transform="rotate(-90)"/>
+          <text y="7" fill="#E9EEF5" font-family="Big Shoulders Display, sans-serif" font-weight="900" font-size="26" text-anchor="middle">7.2 MI</text>
+          <text y="80" fill="#9AA8C0" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">YOUR WATCH</text>
+        </g>
+        <g transform="translate(450 100)">
+          <circle r="62" fill="url(#fl)" opacity=".18"/>
+          <circle r="46" fill="#FF5A2C"/>
+          <circle r="22" fill="#FFB31F"/>
+          <text y="92" fill="#9AA8C0" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">YOUR GOALS + RESEARCH</text>
+        </g>
+        <g transform="translate(750 100)">
+          <rect x="-34" y="-62" width="68" height="124" rx="14" fill="#15264A" stroke="#FFB31F" stroke-width="3"/>
+          <rect x="-24" y="-38" width="44" height="18" rx="7" fill="#E9EEF5"/>
+          <rect x="-20" y="-12" width="40" height="18" rx="7" fill="#19B8A6"/>
+          <rect x="-24" y="14" width="34" height="18" rx="7" fill="#E9EEF5"/>
+          <text y="88" fill="#9AA8C0" font-family="JetBrains Mono, monospace" font-size="12" text-anchor="middle">YOUR MESSAGES</text>
+        </g>
+      </svg>
+    </div>
+    <ol class="steps">
+      <li><h3>Tell it your why</h3><p>A short intake. Your goals, your history, your old injuries and what you want the next ten years to look like.</p></li>
+      <li><h3>Connect your watch</h3><p>Garmin and COROS connect through intervals.icu, a free training log. Apple Watch and others are being checked now. Runs flow in on their own.</p></li>
+      <li><h3>Get tomorrow tonight</h3><p>An evening message with the next session. A weekly message with the full plan.</p></li>
+      <li><h3>Push back anytime</h3><p>Ask why. Tell it you only have 30 minutes or your week blew up. It explains and adjusts.</p></li>
+      <li><h3>Hear it straight</h3><p>If something sounds like a warning sign, it tells you to stop and see a doctor or physical therapist. Same rule for everyone.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section yours" id="yours">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Try it</span>
+      <h2>Same workout. Said your way.</h2>
+      <p>Some runners need a leash. Others want the studies. Pick how you train and how much you want explained, then watch the message change.</p>
+    </div>
+    <div class="yours-grid">
+      <div class="ctrl">
+        <div class="ctrl-group">
+          <h3>How you train</h3>
+          <div class="seg" role="group" aria-label="How you train" data-key="tone">
+            <button type="button" data-v="pusher" aria-pressed="true">I always do more</button>
+            <button type="button" data-v="steady" aria-pressed="false">Steady</button>
+            <button type="button" data-v="worrier" aria-pressed="false">I second-guess</button>
+          </div>
+        </div>
+        <div class="ctrl-group">
+          <h3>How much why</h3>
+          <div class="seg" role="group" aria-label="How much explanation" data-key="why">
+            <button type="button" data-v="none" aria-pressed="false">Just tell me</button>
+            <button type="button" data-v="short" aria-pressed="true">Tell me why</button>
+            <button type="button" data-v="deep" aria-pressed="false">Show me the research</button>
+          </div>
+        </div>
+        <div class="guard">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5z" fill="none" stroke="#19B8A6" stroke-width="2"/><path d="M8 12l3 3 5-6" fill="none" stroke="#19B8A6" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>The wording changes. The guardrails never do. Mileage caps and injury rules stay the same for every athlete.</span>
+        </div>
+      </div>
+      <div class="phone">
+        <div class="screen">
+          <div class="screen-top"><span class="avatar" aria-hidden="true"></span><div><b>Coach</b><span>Tuesday, 8:42 PM</span></div></div>
+          <div class="thread">
+            <div class="msg in" id="liveMsg" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section life" id="why40">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Built for the back half</span>
+      <h2>Train for the hike you'll take at 85.</h2>
+      <p>After 40 the rules change. Tendons want patience. Muscle leaves unless you ask it to stay. Consistency beats hero workouts. The coach draws on research about masters athletes where it exists and tells you plainly when something is our own coaching default, so the plan fits the body you have now.</p>
+    </div>
+    <div class="profile">
+      <svg id="lifeSvg" viewBox="0 0 1000 300" role="img" aria-label="Elevation profile from age 40 to 85 with milestones: a marathon goal, strength kept, an ultra and still hiking at 85"></svg>
+    </div>
+  </div>
+</section>
+
+<section class="section vision" id="vision">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Where this is going</span>
+      <h2>One coach for the rest of your training life.</h2>
+      <p>Right now it coaches me and a few people I know. Here's where I want it to go. There are no dates on this, only the direction.</p>
+    </div>
+    <ol class="road">
+      <li><span class="mono">Now</span><h3>Run and lift</h3><p>Men over 40 who run, lift and wear a running watch. One message in the evening, one each week, and a coach you can talk back to.</p></li>
+      <li><span class="mono">Next</span><h3>More of us</h3><p>A women's version, after a woman clinician reviews it. A simpler start for beginners. A monthly check-in where the coach tells you what it missed and what it's changing.</p></li>
+      <li><span class="mono">Later</span><h3>The long game</h3><p>Cycling and cross-training, so an injury or a season off doesn't mean starting over. Nutrition for 40 and up. An option to add a human coach. Plain text messages, with no extra app.</p></li>
+    </ol>
+    <div class="keeps">
+      <h3>What won't change</h3>
+      <ul>
+        <li>It stays simple. A message tonight about tomorrow.</li>
+        <li>It tells you why, and it takes your pushback.</li>
+        <li>Safety rules are the same for everyone. Everything else bends around your life.</li>
+        <li>It says plainly what comes from research and what's our own coaching default.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section founder" id="founder">
+  <div class="wrap founder-grid">
+    <div class="bib" aria-hidden="true">
+      <div class="num">53</div>
+      <div class="lbl">Founder · Boise, Idaho</div>
+      <dl>
+        <dt>RUNNING</dt><dd>7 years</dd>
+        <dt>MARATHON</dt><dd>3:00 in 2022</dd>
+        <dt>BARBELL</dt><dd>18 months</dd>
+        <dt>NEXT</dt><dd>Hiking at 85</dd>
+      </dl>
+    </div>
+    <div>
+      <span class="eyebrow" style="color:var(--dawn)">Why this exists</span>
+      <blockquote>
+        <p>I'm Greg. I ran a 3:00 marathon in 2022, then spent a year and a half learning to lift heavy. Fitting the two together at 53 took a stack of research and a coaching setup I built around my own history.</p>
+        <p>I built this so my brothers and I could have that coaching in our pocket. Now I'm building it for more runners like us.</p>
+      </blockquote>
+      <p class="sig">Greg, founder</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Questions</span>
+      <h2>The short answers.</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Does it replace my running watch?</summary><p>It uses your watch. Garmin and COROS work today, and Apple Watch and other watches are being checked now. Your watch keeps tracking, and the coach turns that data into a plan fit to you.</p></details>
+      <details><summary>Who is it for?</summary><p>Runners 40 and up who already train and want to add strength without getting hurt. The first outside testers are men. The women's version of the training gets its own review by a woman clinician, and women join after that review. Beginners are welcome later with a simpler start.</p></details>
+      <details><summary>What about injuries?</summary><p>It's a training coach, not a medical provider. If something sounds like an injury, it tells you plainly to see a physical therapist or a doctor. If your clinician gives you a loading plan, the coach builds your training around that plan.</p></details>
+      <details><summary>Do I need to download an app?</summary><p>There's no fitness app to open. The coach messages you in Telegram, a free messaging app you may already have.</p></details>
+      <details><summary>When can I start?</summary><p>Testing starts small and grows slowly so it stays safe. Join the list and I'll let you know when there's room.</p></details>
+      <details><summary>What will it cost?</summary><p>Pricing comes with launch. The goal is a fraction of what a human coach charges.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="join">
+  <div class="wrap">
+    <h2>Get on the list.</h2>
+    <p class="lead">Tell me what you're training for. I'll let you know when there's room. Men over 40 come first. Women join after a woman clinician reviews the women's training.</p>
+    <div class="signup">
+      <a class="btn btn-dawn" href="https://tally.so/r/aONrz9" target="_blank" rel="noopener">Join the list</a>
+      <p class="form-note">Takes about a minute. Your answers go to me, and I won't share or sell them.</p>
+    </div>
+  </div>
+  <div class="cta-land" aria-hidden="true"><svg id="ctaLand" viewBox="0 0 1440 240" preserveAspectRatio="xMidYMax slice"></svg></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <span data-brand>Back Half Athlete</span></span>
+    <a href="https://tally.so/r/aONrz9" target="_blank" rel="noopener" style="color:var(--night-text)">Join the list</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (tag, attrs, parent) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; };
+
+  /* ---------- Seeded noise ---------- */
+  function rng(seed){ let s = seed % 2147483647; if (s <= 0) s += 2147483646; return () => (s = s * 16807 % 2147483647, (s - 1) / 2147483646); }
+  function noise(seed, n){ const r = rng(seed), p = []; for (let i = 0; i < n; i++) p.push(r()); return x => { const i = Math.floor(x), f = x - i, t = f * f * (3 - 2 * f); return p[((i % n) + n) % n] * (1 - t) + p[(((i + 1) % n) + n) % n] * t; }; }
+  function ridgePoints(seed, W, base, amp, step, freq){
+    const n1 = noise(seed, 64), n2 = noise(seed * 7 + 3, 64), n3 = noise(seed * 13 + 11, 64), pts = [];
+    for (let x = 0; x <= W; x += step){ const u = x / W * freq; const v = n1(u) * .62 + n2(u * 2.3) * .28 + n3(u * 5.1) * .1; pts.push([x, base - v * amp]); }
+    return pts;
+  }
+  const toPath = (pts, W, H) => "M0 " + H + " L" + pts.map(p => p[0] + " " + p[1].toFixed(1)).join(" L") + " L" + W + " " + H + " Z";
+  const topLine = pts => "M" + pts.map(p => p[0] + " " + (p[1] - 1).toFixed(1)).join(" L");
+  const yAt = (pts, x, step) => { const i = Math.max(0, Math.min(pts.length - 2, Math.floor(x / step))); const f = (x - pts[i][0]) / step; return pts[i][1] * (1 - f) + pts[i + 1][1] * f; };
+
+  /* ---------- Hero landscape ---------- */
+  const land = document.getElementById("land");
+  const W = 1440, H = 420, STEP = 8;
+  const defs = el("defs", {}, land);
+  const sg = el("radialGradient", { id: "sunG" }, defs);
+  el("stop", { offset: "0", "stop-color": "#FFF1C2" }, sg); el("stop", { offset: ".55", "stop-color": "#FFB31F" }, sg); el("stop", { offset: "1", "stop-color": "#FF7A3D", "stop-opacity": "0" }, sg);
+  const sun = el("g", {}, land);
+  el("circle", { cx: 1040, cy: 230, r: 150, fill: "url(#sunG)", opacity: .55 }, sun);
+  el("circle", { cx: 1040, cy: 230, r: 62, fill: "#FFE08A" }, sun);
+  const layers = [
+    { seed: 11, base: 250, amp: 120, freq: 3.2, fill: "#B5536A", par: .05 },
+    { seed: 23, base: 290, amp: 130, freq: 4.1, fill: "#6E3A66", par: .1 },
+    { seed: 37, base: 320, amp: 110, freq: 5.0, fill: "#3A2F5C", par: .16 },
+    { seed: 51, base: 350, amp: 95, freq: 3.6, fill: "#1E2A4E", par: .24 },
+    { seed: 67, base: 395, amp: 70, freq: 2.6, fill: "#0E1A31", par: .34 }
+  ];
+  const layerEls = layers.map(L => {
+    const g = el("g", {}, land);
+    L.pts = ridgePoints(L.seed, W, L.base, L.amp, STEP, L.freq);
+    el("path", { d: toPath(L.pts, W, H + 40), fill: L.fill }, g);
+    L.g = g; return g;
+  });
+  // trail + runner on layer 3
+  const RL = layers[3];
+  const clip = el("clipPath", { id: "trailClip" }, defs);
+  const clipRect = el("rect", { x: 0, y: 0, width: 0, height: H }, clip);
+  el("path", { d: topLine(RL.pts), fill: "none", stroke: "#FFB31F", "stroke-width": 2.5, "stroke-dasharray": "2 7", "stroke-linecap": "round", "clip-path": "url(#trailClip)", opacity: .9 }, RL.g);
+  /* Runner: keyframed gait cycle (contact, mid-stance, toe-off, flight, high knee, reach) */
+  const runner = el("g", { "stroke-linecap": "round", "stroke-linejoin": "round", fill: "none" }, RL.g);
+  const glow = el("circle", { r: 28, fill: "#FFB31F", opacity: .13 }, RL.g);
+  RL.g.insertBefore(glow, runner);
+  const NEAR = "#FFB31F", FAR = "#FFB31F";
+  const mk = (c, w) => el("line", { stroke: c, "stroke-width": w }, runner);
+  const R = { // draw order: far side first
+    farUA: mk(FAR, 3), farFA: mk(FAR, 3), farTh: mk(FAR, 3.2), farSh: mk(FAR, 3.2), farFt: mk(FAR, 2.8),
+    torso: mk(NEAR, 3.4),
+    nearTh: mk(NEAR, 3.2), nearSh: mk(NEAR, 3.2), nearFt: mk(NEAR, 2.8), nearUA: mk(NEAR, 3), nearFA: mk(NEAR, 3)
+  };
+  const head = el("circle", { r: 4.4, fill: NEAR }, runner);
+  ["farUA","farFA","farTh","farSh","farFt"].forEach(k => R[k].setAttribute("opacity", .5));
+  const deg = Math.PI / 180, LT = 22, LS = 22, LF = 7, TOR = 30, LUA = 14, LFA = 13, SC = .62, CAD = 1.5, N = 200, STANCE = .3;
+  const KF = {
+    hip:  [[0,30],[.1,18],[.2,2],[.3,-24],[.4,-19],[.52,0],[.65,32],[.78,48],[.9,38],[1,30]],
+    knee: [[0,14],[.1,30],[.2,22],[.3,18],[.42,85],[.55,130],[.66,115],[.8,60],[.92,16],[1,14]],
+    foot: [[0,-12],[.06,0],[.22,2],[.3,45],[.42,65],[.58,40],[.78,10],[.92,-12],[1,-12]]
+  };
+  function table(kf){
+    const out = [];
+    for (let i = 0; i < N; i++){ const u = i / N; let j = 0; while (kf[j + 1][0] < u) j++; const a = kf[j], b = kf[j + 1]; out.push(a[1] + (b[1] - a[1]) * (u - a[0]) / (b[0] - a[0])); }
+    for (let pass = 0; pass < 2; pass++){ const c = out.slice(); for (let i = 0; i < N; i++){ let sum = 0; for (let k = -3; k <= 3; k++) sum += c[(i + k + N) % N]; out[i] = sum / 7; } }
+    return out;
+  }
+  const T = { hip: table(KF.hip), knee: table(KF.knee), foot: table(KF.foot) };
+  function legAt(i){ // leg joints relative to hip at (0,0), y down
+    const th = T.hip[i] * deg, sh = th - T.knee[i] * deg, fa = T.foot[i] * deg;
+    const k = [Math.sin(th) * LT, Math.cos(th) * LT];
+    const a = [k[0] + Math.sin(sh) * LS, k[1] + Math.cos(sh) * LS];
+    const toe = [a[0] + Math.cos(fa) * LF, a[1] + Math.sin(fa) * LF];
+    const heel = [a[0] - Math.cos(fa) * 2.5, a[1] - Math.sin(fa) * 2.5];
+    return { th: T.hip[i], k, a, toe, low: Math.max(a[1], toe[1], heel[1]) };
+  }
+  // Vertical bob: the stance foot sits on the ground, the body floats higher in flight
+  const LEG = []; for (let i = 0; i < N; i++) LEG.push(legAt(i));
+  const lift = new Array(N).fill(null);
+  for (let i = 0; i < N; i++){ const u = i / N; if (u < STANCE) lift[i] = LEG[i].low; else if (u >= .5 && u < .5 + STANCE) lift[i] = LEG[(i + N / 2) % N].low; }
+  const fill = (from, to) => { const a = lift[(from - 1 + N) % N], b = lift[to % N], n = to - from + 1; for (let k = 0; k < to - from; k++){ const f = (k + 1) / n; lift[from + k] = a + (b - a) * f + Math.sin(f * Math.PI) * 9; } };
+  fill(Math.round(STANCE * N), Math.round(.5 * N)); fill(Math.round((.5 + STANCE) * N), N);
+  // Travel speed matched to the stance foot so it doesn't skate
+  const SPEED = (LEG[0].a[0] - LEG[Math.round(STANCE * N) - 1].a[0]) / STANCE * CAD * SC;
+  function setL(l, a, b){ l.setAttribute("x1", a[0].toFixed(1)); l.setAttribute("y1", a[1].toFixed(1)); l.setAttribute("x2", b[0].toFixed(1)); l.setAttribute("y2", b[1].toFixed(1)); }
+  function pose(x, ground, phase){
+    const i = Math.floor(((phase % 1) + 1) % 1 * N), j = (i + N / 2) % N;
+    const near = LEG[i], far = LEG[j];
+    const hy = ground - lift[i] * SC; // hip height
+    const P = q => [x + q[0] * SC, hy + q[1] * SC];
+    const lean = (9 + Math.sin(phase * Math.PI * 4) * .8) * deg;
+    const shoulder = [Math.sin(lean) * TOR, -Math.cos(lean) * TOR];
+    const hip = [0, 0];
+    setL(R.torso, P(hip), P(shoulder));
+    const hc = P([shoulder[0] + Math.sin(14 * deg) * 9, shoulder[1] - Math.cos(14 * deg) * 9]);
+    head.setAttribute("cx", hc[0].toFixed(1)); head.setAttribute("cy", hc[1].toFixed(1));
+    const leg = (L, th, sh, ft) => { setL(th, P(hip), P(L.k)); setL(sh, P(L.k), P(L.a)); setL(ft, P(L.a), P(L.toe)); };
+    leg(far, R.farTh, R.farSh, R.farFt); leg(near, R.nearTh, R.nearSh, R.nearFt);
+    // arms swing opposite their own-side leg
+    const arm = (legTh, ua, fa) => {
+      const a = (legTh - 10) * 1.35 * deg; // moves with the opposite leg
+      const e = [shoulder[0] + Math.sin(a) * LUA, shoulder[1] + Math.cos(a) * LUA];
+      const f = a + (88 + Math.max(0, a / deg) * .3) * deg;
+      const w = [e[0] + Math.sin(f) * LFA, e[1] + Math.cos(f) * LFA];
+      setL(ua, P(shoulder), P(e)); setL(fa, P(e), P(w));
+    };
+    arm(near.th, R.farUA, R.farFA); arm(far.th, R.nearUA, R.nearFA);
+    glow.setAttribute("cx", x + 4); glow.setAttribute("cy", (hy - 8 * SC).toFixed(1));
+  }
+  let rx = 380, gait = .2, sunY = reduce ? 0 : 160, mouse = 0, lastT = performance.now();
+  pose(rx, yAt(RL.pts, rx, STEP) + 1, gait); clipRect.setAttribute("width", rx);
+  sun.setAttribute("transform", "translate(0 " + sunY + ")");
+  window.addEventListener("pointermove", e => { mouse = e.clientX / window.innerWidth - .5; }, { passive: true });
+  function heroVisible(){ return window.scrollY < window.innerHeight * 1.4; }
+  function tick(now){
+    const dt = Math.min(.05, (now - lastT) / 1000); lastT = now;
+    if (heroVisible()){
+      rx += dt * SPEED; if (rx > W + 40) rx = -40; gait = (gait + dt * CAD) % 1;
+      const y = yAt(RL.pts, Math.max(0, Math.min(W, rx)), STEP) + 1;
+      pose(rx, y, gait); clipRect.setAttribute("width", Math.max(0, rx));
+      sunY += (0 - sunY) * Math.min(1, dt * .9);
+      const sc = window.scrollY;
+      sun.setAttribute("transform", "translate(" + (mouse * -10).toFixed(1) + " " + (sunY + sc * .03).toFixed(1) + ")");
+      layers.forEach(L => L.g.setAttribute("transform", "translate(" + (mouse * -40 * L.par).toFixed(1) + " " + (-sc * L.par * .5).toFixed(1) + ")"));
+    }
+    requestAnimationFrame(tick);
+  }
+  if (!reduce) requestAnimationFrame(tick);
+
+  /* ---------- CTA landscape ---------- */
+  const cl = document.getElementById("ctaLand");
+  [{ seed: 91, base: 150, amp: 90, freq: 3.4, fill: "#5A2752" }, { seed: 77, base: 200, amp: 80, freq: 2.8, fill: "#2A2550" }, { seed: 63, base: 236, amp: 60, freq: 2.2, fill: "#0E1A31" }]
+    .forEach(L => el("path", { d: toPath(ridgePoints(L.seed, 1440, L.base, L.amp, 10, L.freq), 1440, 260), fill: L.fill }, cl));
+
+  /* ---------- Hero thread replay ---------- */
+  const thread = document.getElementById("heroThread");
+  const msgs = Array.from(thread.querySelectorAll(".msg"));
+  const typing = document.createElement("div"); typing.className = "typing"; typing.innerHTML = "<i></i><i></i><i></i>"; typing.hidden = true; thread.appendChild(typing);
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  async function replay(){
+    while (true){
+      await wait(7000);
+      msgs.forEach(m => m.classList.add("hide"));
+      await wait(700);
+      for (const m of msgs){
+        if (m.classList.contains("in")){ thread.insertBefore(typing, m); typing.hidden = false; await wait(1300); typing.hidden = true; }
+        else await wait(900);
+        m.classList.remove("hide"); await wait(500);
+      }
+    }
+  }
+  if (!reduce) replay();
+
+  /* ---------- Apps viz ---------- */
+  const vApps = document.getElementById("vApps"), countEl = document.getElementById("appsCount"), pill = document.getElementById("appsPill"), small = document.getElementById("appsSmall");
+  const badges = Array.from(vApps.querySelectorAll(".badge"));
+  async function appsLoop(){
+    while (true){
+      let total = 18; vApps.classList.remove("calm"); pill.textContent = "Unread alerts"; small.textContent = "pings this week";
+      badges.forEach((b, i) => b.textContent = [3,7,2,5,1][i]); countEl.textContent = total;
+      for (let k = 0; k < 9; k++){
+        await wait(420); const b = badges[Math.floor(Math.random() * badges.length)];
+        b.textContent = (+b.textContent) + 1; b.classList.add("bump"); setTimeout(() => b.classList.remove("bump"), 200);
+        total += 1 + Math.floor(Math.random() * 3); countEl.textContent = total;
+      }
+      await wait(900);
+      vApps.classList.add("calm"); pill.textContent = "With the coach"; countEl.textContent = "1"; small.textContent = "message a night";
+      await wait(4200);
+    }
+  }
+  if (!reduce) setTimeout(appsLoop, 1500);
+
+  /* ---------- Week viz ---------- */
+  const vWeek = document.getElementById("vWeek"), blks = Array.from(vWeek.querySelectorAll(".blk"));
+  function setWeek(fixed){ vWeek.classList.toggle("fixed", fixed); blks.forEach(b => b.style.setProperty("--d", fixed ? b.dataset.good : b.dataset.bad)); }
+  setWeek(false);
+  if (!reduce){ let f = false; setInterval(() => { f = !f; setWeek(f); }, 3600); }
+
+  /* ---------- Research lens chips ---------- */
+  const topics = ["Polarized training","Tendon loading","Protein after 40","Strides","Concurrent training","Heavy-light lifting","VO2max and age","Single-leg strength","Sleep and recovery","Taper studies","Bone density","Zone 2","Heat training","Deload timing"];
+  const field = document.getElementById("lensField");
+  function placeChips(){
+    field.querySelectorAll(".chip").forEach(c => c.remove());
+    const w = field.clientWidth, h = field.clientHeight, rxE = Math.max(110, w * .36), ryE = Math.max(80, h * .38);
+    topics.forEach((t, i) => {
+      const a = i / topics.length * Math.PI * 2 + .3, c = document.createElement("span");
+      c.className = "chip"; c.textContent = t;
+      c.style.setProperty("--x", (Math.cos(a) * rxE).toFixed(0) + "px");
+      c.style.setProperty("--y", (Math.sin(a) * ryE).toFixed(0) + "px");
+      c.style.setProperty("--dl", (-(i * 9 / topics.length) - 0.2).toFixed(2) + "s");
+      field.appendChild(c);
+    });
+  }
+  placeChips();
+  let rT; window.addEventListener("resize", () => { clearTimeout(rT); rT = setTimeout(placeChips, 200); });
+
+  /* ---------- Flow packets ---------- */
+  const fp = document.getElementById("flowPath"), pk = document.getElementById("packets");
+  const packets = [0, .33, .66].map(o => ({ o, c: el("circle", { r: 7, fill: "#FFB31F" }, pk) }));
+  const flen = fp.getTotalLength();
+  function flowTick(now){
+    packets.forEach(p => { const u = ((now / 3600) + p.o) % 1; const pt = fp.getPointAtLength(u * flen); p.c.setAttribute("cx", pt.x); p.c.setAttribute("cy", pt.y); p.c.setAttribute("fill", u < .5 ? "#19B8A6" : "#FFB31F"); });
+    requestAnimationFrame(flowTick);
+  }
+  if (!reduce) requestAnimationFrame(flowTick); else packets.forEach(p => { const pt = fp.getPointAtLength(p.o * flen); p.c.setAttribute("cx", pt.x); p.c.setAttribute("cy", pt.y); });
+
+  /* ---------- Interactive message ---------- */
+  const state = { tone: "pusher", why: "short" };
+  const base = "Tomorrow: 6 mi easy, then Lift A. Squat 3x5 at 225.";
+  const tone = {
+    pusher: "I know you'll want 7. Don't. Six is the plan, and easy means you could talk the whole way.",
+    steady: "Good, consistent week. Keep it rolling.",
+    worrier: "You're right on track. Heavy legs Tuesday are normal for this block. Nothing to fix."
+  };
+  const why = {
+    none: "",
+    short: "Why: Thursday's tempo is the key session this week. Easy miles now keep you fresh for it.",
+    deep: "Why: Most of your running stays easy so the hard days count. Squats go after the run so lifting doesn't eat into run quality."
+  };
+  const live = document.getElementById("liveMsg");
+  function render(){
+    live.style.opacity = 0;
+    setTimeout(() => {
+      live.innerHTML = "";
+      const t = document.createElement("time"); t.textContent = "8:42 PM"; live.appendChild(t);
+      live.appendChild(document.createTextNode(base + " " + tone[state.tone]));
+      if (why[state.why]){ const s = document.createElement("span"); s.className = "why"; s.textContent = why[state.why]; live.appendChild(s); }
+      live.style.opacity = 1;
+    }, reduce ? 0 : 180);
+  }
+  document.querySelectorAll(".seg").forEach(g => g.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    g.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    state[g.dataset.key] = b.dataset.v; render();
+  }));
+  render();
+
+  /* ---------- Life elevation profile ---------- */
+  const ls = document.getElementById("lifeSvg");
+  const LW = 1000, LH = 300, x0 = 50, x1 = 960, yBase = 240;
+  const ld = el("defs", {}, ls);
+  const lg = el("linearGradient", { id: "lifeG", x1: 0, x2: 0, y1: 0, y2: 1 }, ld);
+  el("stop", { offset: "0", "stop-color": "#19B8A6", "stop-opacity": ".45" }, lg); el("stop", { offset: "1", "stop-color": "#19B8A6", "stop-opacity": "0" }, lg);
+  const ln = noise(5, 32), lpts = [];
+  for (let x = x0; x <= x1; x += 6){ const u = (x - x0) / (x1 - x0); const y = yBase - 60 - Math.sin(u * Math.PI * 3.2) * 34 - ln(u * 9) * 40 + u * 10; lpts.push([x, y]); }
+  const lineD = "M" + lpts.map(p => p[0] + " " + p[1].toFixed(1)).join(" L");
+  el("path", { d: lineD + " L" + x1 + " " + yBase + " L" + x0 + " " + yBase + " Z", fill: "url(#lifeG)" }, ls);
+  el("path", { d: lineD, fill: "none", stroke: "#0E1A31", "stroke-width": 3, "stroke-linejoin": "round" }, ls);
+  el("line", { x1: x0, y1: yBase, x2: x1, y2: yBase, stroke: "#CBD5D0", "stroke-width": 2 }, ls);
+  const ageX = a => x0 + (a - 40) / 45 * (x1 - x0);
+  const lyAt = x => { const i = Math.max(0, Math.min(lpts.length - 2, Math.floor((x - x0) / 6))); const f = (x - lpts[i][0]) / 6; return lpts[i][1] * (1 - f) + lpts[i + 1][1] * f; };
+  [40,50,60,70,80,85].forEach(a => { const tx = el("text", { x: ageX(a), y: yBase + 26, "text-anchor": "middle", "font-family": "JetBrains Mono, monospace", "font-size": 13, fill: "#566477" }, ls); tx.textContent = a === 85 ? "85" : a; });
+  const ageLbl = el("text", { x: x0, y: yBase + 50, "font-family": "JetBrains Mono, monospace", "font-size": 11, fill: "#566477", "letter-spacing": ".1em" }, ls); ageLbl.textContent = "AGE";
+  const marks = [[47, "Marathon goal", "#FF5A2C"], [58, "Strength kept", "#FFB31F"], [69, "First ultra?", "#19B8A6"], [85, "Still hiking", "#FF5A2C"]];
+  marks.forEach(([a, label, col], i) => {
+    const x = ageX(a), y = lyAt(Math.min(x, x1));
+    const top = 40 + (i % 2) * 26;
+    el("line", { x1: x, y1: y - 8, x2: x, y2: top + 8, stroke: col, "stroke-width": 2, "stroke-dasharray": "3 4" }, ls);
+    el("circle", { cx: x, cy: y, r: 7, fill: col, stroke: "#fff", "stroke-width": 3 }, ls);
+    const t = el("text", { x: a === 85 ? x - 4 : x, y: top, "text-anchor": a === 85 ? "end" : "middle", "font-family": "Big Shoulders Display, Arial Narrow, sans-serif", "font-weight": 800, "font-size": 22, fill: "#0D1628" }, ls);
+    t.textContent = label.toUpperCase();
+  });
+  const dotG = el("g", {}, ls);
+  el("circle", { r: 14, fill: "#FF5A2C", opacity: .2 }, dotG); el("circle", { r: 6.5, fill: "#FF5A2C" }, dotG);
+  function lifeTick(now){
+    const u = (now / 14000) % 1, x = x0 + u * (x1 - x0);
+    dotG.setAttribute("transform", "translate(" + x.toFixed(1) + " " + lyAt(x).toFixed(1) + ")");
+    requestAnimationFrame(lifeTick);
+  }
+  if (!reduce) requestAnimationFrame(lifeTick); else dotG.setAttribute("transform", "translate(" + ageX(53) + " " + lyAt(ageX(53)) + ")");
+
+})();
+</script>
+</body>
+</html>
